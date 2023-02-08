@@ -34,8 +34,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnPet = findViewById(R.id.btn_pet);
+        imgPet = findViewById(R.id.img_pet);
+        etPet = findViewById(R.id.et_petId);
+        tvPet = findViewById(R.id.tv_petname);
+
         PetInterface petAPI = PetInterface.retrofit.create(PetInterface.class);
-        btnPet.setOnClickListener(v -> {
+        btnPet.setOnClickListener(click -> {
 
             Call<Pets> Call = petAPI.getId(etPet.getText().toString());
 
