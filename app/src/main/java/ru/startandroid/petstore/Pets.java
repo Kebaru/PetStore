@@ -3,13 +3,20 @@ package ru.startandroid.petstore;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-
 public class Pets {
+    public Pets(String name) {
+        this.id = id;
+        this.categories = categories;
+        this.name = name;
+        this.photoUrls = photoUrls;
+        this.tags = tags;
+        this.status = status;
+    }
+
     private int id;
     private List<Category> categories = new ArrayList<>();
     private String name;
-    private String photoUrls;
+    private List<String> photoUrls;
     private List<Tags> tags = new ArrayList<>();
     private String status;
 
@@ -37,11 +44,11 @@ public class Pets {
         this.name = name;
     }
 
-    public String getPhotoUrls() {
+    public List<String> getPhotoUrls() {
         return photoUrls;
     }
 
-    public void setPhotoUrls(String photoUrls) {
+    public void setPhotoUrls(List<String> photoUrls) {
         this.photoUrls = photoUrls;
     }
 

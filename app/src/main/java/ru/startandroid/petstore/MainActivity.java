@@ -2,6 +2,7 @@ package ru.startandroid.petstore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         etPet = findViewById(R.id.et_petId);
         tvPet = findViewById(R.id.tv_petname);
 
+
+
         PetInterface petAPI = PetInterface.retrofit.create(PetInterface.class);
         btnPet.setOnClickListener(click -> {
 
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     String text = "Your pet is " + pet.getName();
                     tvPet.setText(text);
                     Glide.with(MainActivity.this)
-                            .load(pet.getPhotoUrls())
+                            .load(pet.getPhotoUrls().get(0))
                             .apply(new RequestOptions().override(500, 500))
                             .into(imgPet);
                 }
@@ -63,5 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
+    }
+
+    public void toPost(View v){
+        Intent kitchenIntent = new Intent(this, PetActivity.class);
+        startActivity(kitchenIntent);
     }
 }
