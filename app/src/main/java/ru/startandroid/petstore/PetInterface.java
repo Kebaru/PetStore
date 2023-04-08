@@ -16,15 +16,10 @@ public interface PetInterface {
     @GET("pet/{id}")
     Call<Pets> getId(@Path("id") String id);
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://petstore.swagger.io/v2/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
     @POST("pet")
-    Call<Pets> addPet(@Body Pets pets);
+    Call<Pets> addPet(@Body Pets pet);
 
-    Retrofit retrofit2 = new Retrofit.Builder()
+    Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://petstore.swagger.io/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();

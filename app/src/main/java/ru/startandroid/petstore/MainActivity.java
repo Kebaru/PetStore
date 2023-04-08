@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toPost(View v){
-        Intent kitchenIntent = new Intent(this, PetActivity.class);
-        startActivity(kitchenIntent);
+        Intent postIntent = new Intent(this, PetActivity.class);
+        startActivity(postIntent);
     }
 }
